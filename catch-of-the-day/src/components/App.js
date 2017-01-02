@@ -103,7 +103,7 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="French Seafood Market" />
+          <Header tagline={"French Seafood Market"} />
           {/*this is how we looped through the fish and got it to display from Fish.js (until .map)*/}
           <ul className="list-of-fishes">
           {
@@ -129,6 +129,10 @@ class App extends React.Component {
       </div>
     )
   }
+}
+
+App.propTypes = {
+  params: React.PropTypes.object.isRequired
 }
 
   export default App;
