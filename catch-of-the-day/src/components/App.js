@@ -12,17 +12,19 @@ class App extends React.Component {
     super();
 
     this.addFish = this.addFish.bind(this);
-    this.removeFish = this.removeFish.bind(this);
-    this.updateFish = this.updateFish.bind(this);
-    this.loadSamples = this.loadSamples.bind(this);
+    // this.removeFish = this.removeFish.bind(this);
+    // this.updateFish = this.updateFish.bind(this);
+    // this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
     this.removeFromOrder = this.removeFromOrder.bind(this);
     // initial state (lines 8-31, 40 like partials where we don't have to edit text the has the same info everytime we want to change something?) also in Inventory.js line 9
-    this.state = {
+
+  }
+
+    state = {
       fishes: {},
       order: {}
     };
-  }
 
   componentWillMount() {
     // this runs right before the <App> is rendered
@@ -66,23 +68,23 @@ class App extends React.Component {
     this.setState({ fishes });
   }
 
-  updateFish(key, updatedFish) {
+  updateFish = (key, updatedFish) => {
     const fishes = {...this.state.fishes};
     fishes[key] = updatedFish;
     this.setState({ fishes });
-  }
+  };
 
-  removeFish(key) {
+  removeFish = (key) => {
     const fishes = {...this.state.fishes};
     fishes[key] = null;
     this.setState({ fishes });
-  }
+  };
 
-  loadSamples() {
+  loadSamples = () => {
     this.setState({
       fishes: sampleFishes
     });
-  }
+  };
 
   addToOrder(key) {
     //take a copy of our state
